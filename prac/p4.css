@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  margin-right: 20px;
+}
+
+.product-description {
+  flex: 1;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.cart-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.cart-container h2 {
+  margin-bottom: 10px;
+}
+
+/* Style for cart item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 50px;
+  margin-right: 10px;
+}

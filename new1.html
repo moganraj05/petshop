@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furry Friends Finds</title>
+    <link rel="stylesheet" href="prj1.css">
+    <script>
+        // JavaScript to handle adding products to cart
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle adding a product to cart
+            function addToCart(productName, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Add new item to cart
+                cart.push({ name: productName, price: price });
+                
+                // Store cart data in local storage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Product added to cart!');
+            }
+
+            // Add event listeners to all 'Add to Cart' buttons
+            const addToCartButtons = document.querySelectorAll('.button.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productContainer = button.closest('.container');
+                    const productName = productContainer.querySelector('h2').textContent;
+                    const productPrice = productContainer.querySelector('.product-description p').textContent;
+                    addToCart(productName, productPrice);
+                });
+            });
+        });
+    </script>
+</head>
+<body style="background-color: bisque;">
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo" width="60px" height="60px"></a>
+        <div>
+            <ul id="navigate">
+                <li><a href="prj1.html">Home</a></li>
+                <li><a class="active" href="dog.html">Dog Products</a></li>
+                <li><a href="cat.html">Cat Products</a></li>
+                <li><a href="fish.html">Fish Products</a></li>
+                <li><a href="cart.html">Cart<i class="fa-duotone fa-cart-shopping"></i></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Containers -->
+    <div class="container">
+        <div class="product-image">
+            <img src="WhatsApp Image 2024-03-25 at 7.43.11 PM.jpeg" alt="Product Image" width="250">
+        </div>
+        <div class="product-description">
+            <h2>Pedigree Adult Dry Dog Food</h2>
+            <p>Complete & balanced dog food, a perfect food for adult dogs. Contains 20% crude Protein, 10% crude Fat, and 5% crude Fibre. Provides strong muscles, bones & teeth and healthier & shinier coat.</p>
+            <p>Rs: 1399/- <del>Rs: 1223/-</del></p>
+            <p>FREE Delivery</p>
+            <p>🛑12% offer!</p>
+            <div class="button-container">
+                <button class="button">Buy Now</button>
+                <button class="button add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Product Containers Here -->
+
+</body>
+</html>

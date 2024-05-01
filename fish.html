@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furry Friends Finds</title>
+    <link rel="stylesheet" href="prj1.css">
+    <script>
+        // JavaScript to handle adding products to cart
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle adding a product to cart
+            function addToCart(productName, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Add new item to cart
+                cart.push({ name: productName, price: price });
+                
+                // Store cart data in local storage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Product added to cart!');
+            }
+
+            // Add event listeners to all 'Add to Cart' buttons
+            const addToCartButtons = document.querySelectorAll('.button.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productContainer = button.closest('.container');
+                    const productName = productContainer.querySelector('h2').textContent;
+                    const productPrice = productContainer.querySelector('.product-description p').textContent;
+                    addToCart(productName, productPrice);
+                });
+            });
+        });
+    </script>
+</head>
+<body style="background-color: bisque;">
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo" width="60px" height="60px"></a>
+        <div>
+            <ul id="navigate">
+                <li><a href="prj1.html">Home</a></li>
+                <li><a href="dog.html">Dog Products</a></li>
+                <li><a href="cat.html">Cat Products</a></li>
+                <li><a class="active" href="fish.html">Fish Products</a></li>
+                <li><a href="cart.html">Cart<i class="fa-duotone fa-cart-shopping"></i></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="product-image">
+                <img src="Screenshot_20240412_140949.png" alt="Product Image" width="250">
+            </div>
+            <div class="product-description">
+                <h2>Aquarium Tank</h2>
+                <p>28 Liter (Colour May Vary, Blue Or Red, Rust Resistant) LXWXH 16''X8''X17'' INCH. Tank Size (LxWxH): 39X19X44 cm (LXWXH 16''X8''X17'' INCH). Water Capacity: 28L. Lighting System: T-4-LED-6W. Pump Power: 10W Frequency, 500L/H</p>
+                <p>Rs: 5,399/- Rs: 3,899/-</p>
+                <p>FREE Delivery! 🛑 26% offer!</p>
+                <div class="button-container">
+                    <button class="button">Buy Now</button>
+                    <button class="button add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="product-image">
+                <img src="Screenshot_20240412_141208.png" alt="Product Image" height="250" width="250">
+            </div>
+            <div class="product-description">
+                <h2>Taiyo Pluss Discovery Special Fish</h2>
+                <p>Food For All Life Stages - 1 Kg (1.2 mm Pellets) Pouch | Daily Nutrition Grow Feed for all Tropical and Koi Fishes</p>
+                <p>Rs: 590/- Rs : 130/-</p>
+                <p>FREE Delivery! 🛑19% offer!</p>
+                <div class="button-container">
+                    <button class="button">Buy Now</button>
+                    <button class="button add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="product-image">
+                <img src="Screenshot_20240412_141748.png" alt="Product Image" width="250">
+            </div>
+            <div class="product-description">
+                <h2>Taiyo Pluss Discovery Special Fish</h2>
+                <p>Food For All Life Stages - 1 Kg (1.2 mm Pellets) Pouch | Daily Nutrition Grow Feed for all Tropical and Koi Fishes</p>
+                <p>Rs: 590/- Rs : 130/-</p>
+                <p>FREE Delivery! 🛑19% offer!</p>
+                <div class="button-container">
+                    <button class="button">Buy Now</button>
+                    <button class="button add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

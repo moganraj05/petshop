@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart - Furry Friends Finds</title>
+    <link rel="stylesheet" href="prj1.css">
+</head>
+<body style="background-color: bisque;">
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo" width="60px" height="60px"></a>
+        <div>
+            <ul id="navigate">
+                <li><a href="prj1.html">Home</a></li>
+                <li><a href="dog.html">Dog Products</a></li>
+                <li><a href="cat.html">Cat Products</a></li>
+                <li><a href="fish.html">Fish Products</a></li>
+                <li><a class="active" href="cart.html">Cart<i class="fa-duotone fa-cart-shopping"></i></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <h1>Shopping Cart</h1>
+        
+    <div id="cart-items">
+        
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve cart data from local storage
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const cartContainer = document.getElementById('cart-items');
+
+            // Display cart items on the cart page
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <p><strong>${item.name}</strong></p>
+                    <p>Price: ${item.price}</p>
+                `;
+                cartContainer.appendChild(itemElement);
+            });
+
+          
+        });
+    </script>
+
+</body>
+</html>

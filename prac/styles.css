@@ -1,0 +1,60 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style for the product container */
+.product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Style for the product image */
+.product-image {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Style for the product details */
+.product-details {
+  max-width: 500px;
+}
+
+/* Style for the product title */
+.product-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for the product description */
+.product-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style for the product price */
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style for the Add to Cart button */
+.add-to-cart-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}

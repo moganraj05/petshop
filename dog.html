@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furry Friends Finds</title>
+    <link rel="stylesheet" href="prj1.css">
+    <script>
+        // JavaScript to handle adding products to cart
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle adding a product to cart
+            function addToCart(productName, price) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Add new item to cart
+                cart.push({ name: productName, price: price });
+                
+                // Store cart data in local storage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Product added to cart!');
+            }
+            
+            // Function to validate the purchase form
+            function validatePurchaseForm(name, phoneNumber, address, accountNumber) {
+                // Validate name
+                if (name.trim() === '') {
+                    alert('Please enter your name.');
+                    return false;
+                }
+
+                // Validate phone number (simple validation for demonstration)
+                if (!phoneNumber.match(/^\d{10}$/)) {
+                    alert('Please enter a valid 10-digit phone number.');
+                    return false;
+                }
+
+                // Validate address
+                if (address.trim() === '') {
+                    alert('Please enter your address.');
+                    return false;
+                }
+
+                // Validate account number (simple validation for demonstration)
+                if (!accountNumber.match(/^\d{12}$/)) {
+                    alert('Please enter a valid 12-digit account number.');
+                    return false;
+                }
+
+                return true; // All validations passed
+            }
+
+            // Add event listeners to all 'Buy Now' buttons
+            const buyNowButtons = document.querySelectorAll('.button.buy-now');
+            buyNowButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productContainer = button.closest('.container');
+                    const productName = productContainer.querySelector('h2').textContent;
+                    const productPrice = productContainer.querySelector('.product-description p').textContent;
+
+                    // Get form inputs
+                    const name = prompt('Enter your name:');
+                    const phoneNumber = prompt('Enter your phone number:');
+                    const address = prompt('Enter your address:');
+                    const accountNumber = prompt('Enter your account number:');
+
+                    // Validate the form inputs
+                    const isValid = validatePurchaseForm(name, phoneNumber, address, accountNumber);
+
+                    if (isValid) {
+                        // Proceed with adding product to cart
+                        addToCart(productName, productPrice);
+                    }
+                });
+            });
+
+            // Add event listeners to all 'Add to Cart' buttons
+            const addToCartButtons = document.querySelectorAll('.button.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productContainer = button.closest('.container');
+                    const productName = productContainer.querySelector('h2').textContent;
+                    const productPrice = productContainer.querySelector('.product-description p').textContent;
+                    addToCart(productName, productPrice);
+                });
+            });
+        });
+    </script>
+</head>
+<body style="background-color: bisque;">
+    <section id="header">
+        <a href="#"><img src="logo.png" class="logo" width="60px" height="60px"></a>
+        <div>
+            <ul id="navigate">
+                <li><a href="prj1.html">Home</a></li>
+                <li><a class="active" href="dog.html">Dog Products</a></li>
+                <li><a href="cat.html">Cat Products</a></li>
+                <li><a href="fish.html">Fish Products</a></li>
+                <li><a href="cart.html">Cart<i class="fa-duotone fa-cart-shopping"></i></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Product Containers -->
+    <div class="container">
+        <div class="product-image">
+            <img src="WhatsApp Image 2024-03-25 at 7.43.11 PM.jpeg" alt="Product Image" width="250">
+        </div>
+        <div class="product-description">
+            <h2>Pedigree Adult Dry Dog Food</h2>
+            <p>Complete & balanced dog food, a perfect food for adult dogs. Contains 20% crude Protein, 10% crude Fat, and 5% crude Fibre. Provides strong muscles, bones & teeth and healthier & shinier coat.</p>
+            <p>Rs: 1399/- <del>Rs: 1223/-</del></p>
+            <p>FREE Delivery</p>
+            <p>🛑12% offer!</p>
+            <div class="button-container">
+                <button class="button buy-now">Buy Now</button>
+                <button class="button add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="product-image">
+      <img src="WhatsApp Image 2024-03-25 at 7.43.17 PM.jpeg" alt="Product Image" height="250" width="250">
+    </div>
+    <div class="product-description">
+      <h2>Canine Creek Puppy Dry Dog Food</h2>
+      <p>Chicken Flavor, Ultra Premium - 12.5kg (+1kg Extra Free Inside)
+          Supports brain and eye development Healthy skin and coat. Bone and joint health.Promotes healthy muscle growth<br><br>
+             Rs: 9999/-        Rs :6899/-<br>   
+              FREE Delivery                                       
+             🛑48% offer!</p>
+      <div class="button-container">
+        <button class="button">Buy Now</button>
+        <A href=""></A><button class="button">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+  <div class="product-image">
+      <img src="Screenshot_20240412_134717.png" alt="Product Image" width="250">
+    </div>
+    <div class="product-description">
+      <h2>Supercoat Purina</h2>
+      <p>Puppy Dry Dog Food, Chicken - 2Kg Pac
+          Tailored nutrition for your dog’s overall health to bring out his active best .Aids his brain and vision development with DHA2 .Develops his natural defenses with Vitamin C&E.Strengthens his teeth & bones with calcium.<br><br>
+          Rs: 899/-        Rs :599/-<br>   
+          FREE Delivery                                       
+          🛑37% offer!</p>
+      <div class="button-container">
+        <button class="button">Buy Now</button>
+        <A href=""></A><button class="button">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
