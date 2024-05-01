@@ -1,0 +1,52 @@
+body {
+    background-image:url(job562-nunoon-09.jpg);
+    background-size: 1300px 650px;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 300px;
+    margin: 150px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #b3742c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #97670e; /* Changing color on hover */
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
